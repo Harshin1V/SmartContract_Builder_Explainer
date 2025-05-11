@@ -63,15 +63,13 @@ This project implements two tools leveraging Large Language Models (LLMs) to ass
 
 ## 🛡️ Guardrails & Security Measures
 
-- Prompt templates designed to minimize hallucination
+- Prompt templates designed to minimize **hallucination**
 - Output filtered for dangerous patterns (`tx.origin`, unprotected state access)
 - Safety checks for unrestricted access or missing modifiers
 
 ---
 
 ### ⚙️ Setup Instructions
-
-
 
 ```bash
 
