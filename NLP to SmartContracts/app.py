@@ -11,7 +11,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 openai.api_key = api_key
 
 
-# Set page configuration
+# page configuration
 st.set_page_config(
     page_title="Solidity Smart Contract Generator",
     page_icon="🔐",
@@ -19,7 +19,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Helper function for OpenAI API calls
+# Helper function for OpenAI API 
 def generate_contract_with_openai(prompt, api_key):
     try:
         code_prompt = f"""You are an expert Solidity developer tasked with creating secure, minimal smart contracts.
@@ -99,7 +99,6 @@ example_prompts = [
 
 # Main application
 def main():
-    # Custom CSS
     st.markdown("""
     <style>
     .main-header {
