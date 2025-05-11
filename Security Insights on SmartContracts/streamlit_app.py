@@ -11,7 +11,7 @@ from smart_contract_explainer import (
 # Load environment variables
 load_dotenv()
 
-# Set page configuration
+# page configuration
 st.set_page_config(
     page_title="Smart Contract Explainer",
     page_icon="🧊",
