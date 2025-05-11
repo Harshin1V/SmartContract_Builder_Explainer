@@ -159,7 +159,6 @@ def main():
                 
         
     
-    # Main content area
     col1, col2 = st.columns([2, 1])
     
     with col1:
@@ -191,7 +190,6 @@ def main():
     # Generate button  
     generate_pressed = st.button("🔮 Generate Smart Contract", type="primary", use_container_width=True)
     
-    # Display loading spinner during generation
     if generate_pressed and user_input:
         # Store the input in session state
         st.session_state.user_input = user_input
@@ -209,17 +207,14 @@ def main():
                 else:
                     st.error("Failed to generate code. Please check your API key and try again with a different prompt.")
     
-    # Display results if available in session state
     if 'solidity_code' in st.session_state and 'security_considerations' in st.session_state:
         st.markdown('<div class="sub-header">Generated Smart Contract</div>', unsafe_allow_html=True)
         
-        # Create tabs for code and security considerations
         code_tab, security_tab = st.tabs(["Solidity Code", "Security Considerations"])
         
         with code_tab:
             st.code(st.session_state.solidity_code, language="solidity")
             
-            # Download button for the code
             st.download_button(
                 label="⬇️ Download Solidity Code",
                 data=st.session_state.solidity_code,
