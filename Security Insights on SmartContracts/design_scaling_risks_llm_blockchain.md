@@ -2,7 +2,7 @@
 
 ## 🧩 Design Tradeoffs
 
-- **Model choice:** We use `gpt-4o-mini` for cost-effective reasoning. While `gpt-4` provides more accurate results, it’s slower and costlier.
+- **Model choice:** We use `gpt-4o-mini` for cost-effective reasoning. While `gpt-4` provides more accurate results, it’s slower and costlier. GPT-4 (original) has a lower token limit than GPT-4o and its variants including GPT-4o-mini(10k token limit).
 - **Security vs. Speed:** LLM responses are safeguarded with guardrails in prompts to avoid code generation or security leaks. This slightly slows down output generation but improves safety.
 - **ABI fallback:** When source code is unavailable, the tool explains contracts using only the ABI — trading off depth for broader applicability.
 
@@ -30,10 +30,3 @@
 # 🧠 Smart Contract Explainer – Summary
 
 A tool that takes Sepolia testnet contract addresses or Solidity code and uses `web3.py`, Etherscan, and OpenAI (GPT-4o-mini) to generate plain-English summaries explaining key functions, permissions, and security aspects.
-
-**Design Tradeoffs:** Balanced LLM quality vs. cost/speed, fallback to ABI when source missing, security-first prompt design.
-
-**Scaling Ideas:** Caching, async LLM calls, separate on-chain data fetch from off-chain analysis.
-
-**LLM Risks:** Misleading summaries, hallucinations, false sense of security — no replacement for audits.
-
