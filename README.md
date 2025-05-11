@@ -1,4 +1,4 @@
-# 🛠️ LLM-Powered Smart Contract Toolkit  
+# 🛠️ Smart Contract Toolkit  
 
 This project implements two tools leveraging Large Language Models (LLMs) to assist blockchain developers and users:
 
