@@ -106,7 +106,7 @@ def analyze_contract_from_abi(abi, contract_address=None):
         "abi": abi
     }
     
-    # Create a prompt for the LLM
+    # Create prompt for the LLM
     prompt = f"""
     Analyze this smart contract ABI and provide a detailed technical summary.
     
@@ -130,7 +130,7 @@ def analyze_contract_from_source(source_code, abi=None, contract_address=None):
     if not source_code:
         return "No source code provided for analysis."
     
-    # If the source code is a complex JSON (e.g. from Etherscan for verified contracts)
+    # If the source code is a complex JSON
     if source_code.startswith("{") and "}" in source_code:
         try:
             # Handle different source code formats from Etherscan
@@ -153,7 +153,7 @@ def analyze_contract_from_source(source_code, abi=None, contract_address=None):
                             all_sources.append(f"// File: {file_path}\n{file_content['content']}")
                     source_code = "\n\n".join(all_sources)
         except json.JSONDecodeError:
-            # If it's not valid JSON, use it as is
+            # If it's not valid JSON
             pass
     
     contract_info = {
@@ -164,7 +164,7 @@ def analyze_contract_from_source(source_code, abi=None, contract_address=None):
     if abi:
         contract_info["abi"] = abi
     
-    # Create a prompt for the LLM
+    # Create prompt for the LLM
     prompt = f"""
     Analyze this Solidity smart contract and provide a detailed technical summary in plain English.
     
@@ -190,7 +190,7 @@ def analyze_contract_from_source(source_code, abi=None, contract_address=None):
 def generate_explanation_with_openai(prompt):
     """Generate an explanation using OpenAI's API with guardrails."""
     try:
-        # Create a hash of the input for logging purposes
+        # Create hash of the input for logging purposes
         input_hash = hashlib.md5(prompt.encode()).hexdigest()
         print(f"Generating explanation for input hash: {input_hash[:8]}...")
         
@@ -210,7 +210,7 @@ def generate_explanation_with_openai(prompt):
         """
         
         # Call the OpenAI API
-        # Using GPT-4 for better analysis, but can be changed to other models
+        # Using gpt-4o-mini for better analysis, but can be changed to other models as needed
         response = client.chat.completions.create(
             model="gpt-4o-mini",  
             messages=[
