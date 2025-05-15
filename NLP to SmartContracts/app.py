@@ -52,9 +52,6 @@ Return ONLY the complete Solidity code without explanations.
                         
                         )},
                 {"role": "user", "content": code_prompt}
-
-                # {"role": "system", "content": "You are an expert Solidity developer who writes secure, efficient and production-ready smart contracts."},
-                # {"role": "user", "content": code_prompt}
             ],
             temperature=0.2,
             max_tokens=2000
